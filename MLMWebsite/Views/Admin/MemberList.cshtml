@@ -1,0 +1,77 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Identity.EntityFrameworkCore
+@using MLMWebsite.Data
+
+@model IEnumerable<ApplicationUser>
+
+@{
+    ViewData["Title"] = "MemberList";
+}
+<div class="container p-4">
+    <h2>MemberList</h2>
+    <div >
+        
+    </div>
+        
+        
+    <form asp-action="MemberList" asp-controller="Admin" method="get">
+        <div class="form-group col-md-4">
+            @*<label for="search">Search</label>*@
+            <input type="text" name="Use" class="form-control" id="search">
+            <button class="btn btn-primary">
+                <a style="color:white;" asp-action="Dashboard" asp-controller="Home">Home</a>
+            </button>
+            <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+
+       
+    </form>
+
+
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.JoinDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UserName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.PhoneNumber)
+                </th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (ApplicationUser user in Model)
+            {
+                <tr>
+                    <td>
+                        @{
+                            var dateval = user.JoinDate.ToShortDateString();
+                        }
+                        @dateval
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => user.UserName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => user.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => user.PhoneNumber)
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

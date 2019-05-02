@@ -1,0 +1,50 @@
+﻿
+
+@model IEnumerable<MLMWebsite.Models.Proof>
+@{
+    ViewData["Title"] = "Default";
+}
+
+
+<div class="container bg-white">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ApplicationUser.UserName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ApplicationUser.Email)
+                </th>
+                <th>
+                    Proof
+                </th>
+               
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApplicationUser.UserName)
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApplicationUser.Email)
+
+                </td>
+                <td>
+                    @{
+                        string imagepngData = Convert.ToBase64String(item.File);
+                        string imagepngDataURL = string.Format("data:image/png;base64,{0}", imagepngData);
+                    }
+                    <img src="@imagepngDataURL" width="200" alt="image" />
+                </td>
+                
+            </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

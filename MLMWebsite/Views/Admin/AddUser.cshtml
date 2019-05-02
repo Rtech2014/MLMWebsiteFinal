@@ -1,0 +1,55 @@
+﻿@model MLMWebsite.ViewModel.AddUserViewModel
+
+<div class="container">
+    <div>
+        <button class="btn btn-primary">
+            <a style="color:white;" asp-action="Dashboard" asp-controller="Home">Home</a>
+
+        </button>
+    </div>
+    <h2 class="text-black">Create a new user</h2>
+    @*<p class="text-black-50">Open Access control (IAM) at a scope, such as management group, subscription, resource group, or resource, where you want to grant access.</p>*@
+    <div class="row">
+
+        <div class="col-7">
+            <h3>Hey @ViewData["InitAdmin"]</h3>
+
+            <form asp-controller="Admin" asp-action="AddUser" method="post" role="form">
+                <h4 class="text-black">Enter the user details below</h4>
+                <hr />
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="UserName" class="col-md-2 control-label text-black"></label>
+                    <div class="col-md-10">
+                        <input asp-for="UserName" class="form-control" />
+                        <span asp-validation-for="UserName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email" class="col-md-2 control-label text-black"></label>
+                    <div class="col-md-10">
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password" class="col-md-2 control-label text-black"></label>
+                    <div class="col-md-10">
+                        <input asp-for="Password" class="form-control" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <button class="btn btn-primary" content="Create user">Create </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-5 mt-lg-5">
+            <img src="https://www.iconexperience.com/_img/v_collection_png/256x256/shadow/user_add.png" alt="Alternate Text" />
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,533 @@
+﻿
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Identity.EntityFrameworkCore
+@using MLMWebsite.Data
+@model IEnumerable<ApplicationUser>
+
+@{
+    ViewData["Title"] = "ReferalUsers";
+}
+
+<div id="test" class="tree">
+    <ul>
+        <li class="parent_li">
+            <span title="Verkleinern">Test 1</span>
+            <ul>
+                <li class="parent_li">
+                    <span title="Verkleinern">Test 1</span>
+                    <ul>
+                        <li class="parent_li">
+                            <span title="Verkleinern">Test 1</span>
+                            <ul>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 1</span>
+                                    <ul></ul>
+                                </li>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 2</span>
+                                    <ul></ul>
+                                </li>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 3</span>
+                                    <ul></ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="parent_li">
+                            <span title="Verkleinern">Test 2</span>
+                            <ul>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 1</span>
+                                    <ul></ul>
+                                </li>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 2</span>
+                                    <ul></ul>
+                                </li>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 3</span>
+                                    <ul></ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="parent_li">
+                            <span title="Verkleinern">Test 3</span>
+                            <ul>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 1</span>
+                                    <ul></ul>
+                                </li>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 2</span>
+                                    <ul></ul>
+                                </li>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 3</span>
+                                    <ul></ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="parent_li">
+                    <span title="Verkleinern">Test 2</span>
+                    <ul>
+                        <li class="parent_li">
+                            <span title="Verkleinern">Test 1</span>
+                            <ul>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 1</span>
+                                    <ul></ul>
+                                </li>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 2</span>
+                                    <ul></ul>
+                                </li>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 3</span>
+                                    <ul></ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="parent_li">
+                            <span title="Verkleinern">Test 2</span>
+                            <ul>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 1</span>
+                                    <ul></ul>
+                                </li>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 2</span>
+                                    <ul></ul>
+                                </li>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 3</span>
+                                    <ul></ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="parent_li">
+                            <span title="Verkleinern">Test 3</span>
+                            <ul>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 1</span>
+                                    <ul></ul>
+                                </li>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 2</span>
+                                    <ul></ul>
+                                </li>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 3</span>
+                                    <ul></ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="parent_li">
+                    <span title="Verkleinern">Test 3</span>
+                    <ul>
+                        <li class="parent_li">
+                            <span title="Verkleinern">Test 1</span>
+                            <ul>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 1</span>
+                                    <ul></ul>
+                                </li>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 2</span>
+                                    <ul></ul>
+                                </li>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 3</span>
+                                    <ul></ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="parent_li">
+                            <span title="Verkleinern">Test 2</span>
+                            <ul>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 1</span>
+                                    <ul></ul>
+                                </li>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 2</span>
+                                    <ul></ul>
+                                </li>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 3</span>
+                                    <ul></ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="parent_li">
+                            <span title="Verkleinern">Test 3</span>
+                            <ul>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 1</span>
+                                    <ul></ul>
+                                </li>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 2</span>
+                                    <ul></ul>
+                                </li>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 3</span>
+                                    <ul></ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li class="parent_li">
+            <span title="Verkleinern">Test 2</span>
+            <ul>
+                <li class="parent_li">
+                    <span title="Verkleinern">Test 1</span>
+                    <ul>
+                        <li class="parent_li">
+                            <span title="Verkleinern">Test 1</span>
+                            <ul>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 1</span>
+                                    <ul></ul>
+                                </li>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 2</span>
+                                    <ul></ul>
+                                </li>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 3</span>
+                                    <ul></ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="parent_li">
+                            <span title="Verkleinern">Test 2</span>
+                            <ul>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 1</span>
+                                    <ul></ul>
+                                </li>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 2</span>
+                                    <ul></ul>
+                                </li>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 3</span>
+                                    <ul></ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="parent_li">
+                            <span title="Verkleinern">Test 3</span>
+                            <ul>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 1</span>
+                                    <ul></ul>
+                                </li>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 2</span>
+                                    <ul></ul>
+                                </li>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 3</span>
+                                    <ul></ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="parent_li">
+                    <span title="Verkleinern">Test 2</span>
+                    <ul>
+                        <li class="parent_li">
+                            <span title="Verkleinern">Test 1</span>
+                            <ul>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 1</span>
+                                    <ul></ul>
+                                </li>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 2</span>
+                                    <ul></ul>
+                                </li>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 3</span>
+                                    <ul></ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="parent_li">
+                            <span title="Verkleinern">Test 2</span>
+                            <ul>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 1</span>
+                                    <ul></ul>
+                                </li>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 2</span>
+                                    <ul></ul>
+                                </li>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 3</span>
+                                    <ul></ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="parent_li">
+                            <span title="Verkleinern">Test 3</span>
+                            <ul>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 1</span>
+                                    <ul></ul>
+                                </li>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 2</span>
+                                    <ul></ul>
+                                </li>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 3</span>
+                                    <ul></ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="parent_li">
+                    <span title="Verkleinern">Test 3</span>
+                    <ul>
+                        <li class="parent_li">
+                            <span title="Verkleinern">Test 1</span>
+                            <ul>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 1</span>
+                                    <ul></ul>
+                                </li>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 2</span>
+                                    <ul></ul>
+                                </li>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 3</span>
+                                    <ul></ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="parent_li">
+                            <span title="Verkleinern">Test 2</span>
+                            <ul>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 1</span>
+                                    <ul></ul>
+                                </li>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 2</span>
+                                    <ul></ul>
+                                </li>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 3</span>
+                                    <ul></ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="parent_li">
+                            <span title="Verkleinern">Test 3</span>
+                            <ul>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 1</span>
+                                    <ul></ul>
+                                </li>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 2</span>
+                                    <ul></ul>
+                                </li>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 3</span>
+                                    <ul></ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li class="parent_li">
+            <span title="Verkleinern">Test 3</span>
+            <ul>
+                <li class="parent_li">
+                    <span title="Verkleinern">Test 1</span>
+                    <ul>
+                        <li class="parent_li">
+                            <span title="Verkleinern">Test 1</span>
+                            <ul>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 1</span>
+                                    <ul></ul>
+                                </li>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 2</span>
+                                    <ul></ul>
+                                </li>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 3</span>
+                                    <ul></ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="parent_li">
+                            <span title="Verkleinern">Test 2</span>
+                            <ul>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 1</span>
+                                    <ul></ul>
+                                </li>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 2</span>
+                                    <ul></ul>
+                                </li>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 3</span>
+                                    <ul></ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="parent_li">
+                            <span title="Verkleinern">Test 3</span>
+                            <ul>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 1</span>
+                                    <ul></ul>
+                                </li>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 2</span>
+                                    <ul></ul>
+                                </li>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 3</span>
+                                    <ul></ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="parent_li">
+                    <span title="Verkleinern">Test 2</span>
+                    <ul>
+                        <li class="parent_li">
+                            <span title="Verkleinern">Test 1</span>
+                            <ul>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 1</span>
+                                    <ul></ul>
+                                </li>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 2</span>
+                                    <ul></ul>
+                                </li>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 3</span>
+                                    <ul></ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="parent_li">
+                            <span title="Verkleinern">Test 2</span>
+                            <ul>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 1</span>
+                                    <ul></ul>
+                                </li>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 2</span>
+                                    <ul></ul>
+                                </li>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 3</span>
+                                    <ul></ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="parent_li">
+                            <span title="Verkleinern">Test 3</span>
+                            <ul>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 1</span>
+                                    <ul></ul>
+                                </li>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 2</span>
+                                    <ul></ul>
+                                </li>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 3</span>
+                                    <ul></ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="parent_li">
+                    <span title="Verkleinern">Test 3</span>
+                    <ul>
+                        <li class="parent_li">
+                            <span title="Verkleinern">Test 1</span>
+                            <ul>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 1</span>
+                                    <ul></ul>
+                                </li>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 2</span>
+                                    <ul></ul>
+                                </li>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 3</span>
+                                    <ul></ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="parent_li">
+                            <span title="Verkleinern">Test 2</span>
+                            <ul>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 1</span>
+                                    <ul></ul>
+                                </li>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 2</span>
+                                    <ul></ul>
+                                </li>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 3</span>
+                                    <ul></ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="parent_li">
+                            <span title="Verkleinern">Test 3</span>
+                            <ul>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 1</span>
+                                    <ul></ul>
+                                </li>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 2</span>
+                                    <ul></ul>
+                                </li>
+                                <li class="parent_li">
+                                    <span title="Verkleinern">Test 3</span>
+                                    <ul></ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,32 @@
+﻿    @using Microsoft.AspNetCore.Identity
+    @using Microsoft.AspNetCore.Identity.EntityFrameworkCore
+    @using MLMWebsite.Data
+    @model IEnumerable<ApplicationUser>
+
+    @{
+        ViewData["Title"] = "TreeView";
+    }
+
+    <h2>TreeView</h2>
+    <div class="container">
+        <div class="row">
+            <!--
+            We will create a family tree using just.
+            The markup will be simple nested lists
+            -->
+            <table>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <a asp-action="TreeView" asp-controller="Admin" asp-route-id="@item.Id">
+                            @Html.DisplayFor(modelItem => item.UserName)
+
+                        </a>
+                    </tr>
+                }
+            </table>
+
+        </div>
+    </div>
+

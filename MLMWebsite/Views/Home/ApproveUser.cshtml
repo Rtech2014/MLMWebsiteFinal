@@ -1,0 +1,75 @@
+﻿2@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Identity.EntityFrameworkCore
+@using MLMWebsite.Data
+@model IEnumerable<ApplicationUser>
+@{
+    ViewData["Title"] = "ApproveUser";
+}
+
+<h2>ApproveUser</h2>
+
+<div class="container bg-light p-5">
+    @{
+        if (User.IsInRole("InitAdmin"))
+        {
+
+        }
+        else if (User.IsInRole("SuperAdmin"))
+        {
+
+        }
+        else if (User.IsInRole("Admin"))
+        {
+
+        }
+        else
+        {
+            <p>
+                <a asp-action="Create">Create New</a>
+            </p>
+        }
+    }
+    <div>
+        <a asp-action="Dashboard" asp-controller="Home">Home</a>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    Proof
+                </th>
+                <th>
+                    Approve
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UserName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    @*<td>
+                            @await Component.InvokeAsync("ProofApproval")
+                        </td>*@
+                    <td>
+                        <button>Approve User</button>
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

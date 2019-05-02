@@ -1,0 +1,30 @@
+﻿@model MLMWebsite.ViewModel.AddRoleViewModel
+
+<div class="container">
+    <h1 class="text-white">Add Role</h1>
+    <p class="lead text-white-50">In computer systems security, role-based access control (RBAC) is an approach to restricting system access to authorized users. ... The components of RBAC such as role-permissions, user-role and role-role relationships make it simple to perform user assignments.</p>
+    <div class="row">
+        <div class="col-6">
+            <form asp-controller="Admin" asp-action="AddNewRole" method="post" class="form-horizontal" role="form">
+                <h4 class="text-white">Enter the role details below</h4>
+                <hr />
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="RoleName" class="col-md-4 control-label text-white"></label>
+                    <div class="col-md-10">
+                        <input asp-for="RoleName" class="form-control" />
+                        <span asp-validation-for="RoleName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" class="btn btn-primary" value="Create role" />
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-6">
+            <img src="https://www.iconshock.com/image/Vista/Networking/role/" class="ml-3" alt="Alternate Text" />
+        </div>
+    </div>
+</div>

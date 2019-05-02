@@ -1,0 +1,317 @@
+﻿@model IEnumerable<MLMWebsite.Models.LevelSetting>
+
+@{
+    ViewData["Title"] = "Default";
+}
+
+<h2></h2>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>
+                    Mercury
+                </th>
+                <th>
+                    Members
+                </th>
+
+                <th>
+                    Split Up
+                </th>
+                <th>
+                    Earnings
+                </th>
+
+            </tr>
+        </thead>
+        <tbody style="font-size:small">
+            @foreach (var item in Model)
+            {
+                @if (item.LevelName == "Mercury")
+                {
+
+                    <tr>
+                        <td>
+                            Level 1
+
+                        </td>
+                        <td>
+                            @{
+                                int lvl10 = 2;
+                            }
+                            @lvl10
+
+                        </td>
+                        <td>
+                            
+                                @Html.DisplayFor(modelItem => item.Level10)
+                            
+                        </td>
+                        <td>
+                            @{
+                                double ear10 = lvl10 * item.Level10;
+                            }
+                            @ear10
+
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            Level 2
+
+                        </td>
+                        <td>
+                            @{
+                                int lvl9 = 4;
+                            }
+                            @lvl9
+
+                        </td>
+                        <td>
+                            
+                                @Html.DisplayFor(modelItem => item.Level9)
+                            
+
+                        </td>
+                        <td>
+                            @{
+                                double ear9 = lvl9 * item.Level9;
+                            }
+                            @ear9
+
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            Level 3
+
+                        </td>
+                        <td>
+                            @{
+                                int lvl8 = 8;
+                            }
+                            @lvl8
+
+                        </td>
+                        <td>
+                            
+                                @Html.DisplayFor(modelItem => item.Level8)
+                            
+
+                        </td>
+                        <td>
+                            @{
+                                double ear8 = lvl8 * item.Level8;
+                            }
+                            @ear8
+
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            Level 4
+
+                        </td>
+                        <td>
+                            @{
+                                int lvl7 = 16;
+                            }
+                            @lvl7
+
+                        </td>
+                        <td>
+                            
+                                @Html.DisplayFor(modelItem => item.Level7)
+                            
+
+                        </td>
+                        <td>
+                            @{
+                                double ear7 = lvl7* item.Level7;
+                            }
+                            @ear7
+
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            Level 5
+
+                        </td>
+                        <td>
+                            @{
+                                int lvl6 = 32;
+                            }
+                            @lvl6
+
+                        </td>
+                        <td>
+                            
+                                @Html.DisplayFor(modelItem => item.Level6)
+                            
+
+                        </td>
+                        <td>
+                            @{
+                                double ear6 = lvl6 * item.Level6;
+                            }
+                            @ear6
+
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            Level 6
+
+                        </td>
+                        <td>
+                            @{
+                                int lvl5 = 64;
+                            }
+                            @lvl5
+
+                        </td>
+                        <td>
+                            
+                                @Html.DisplayFor(modelItem => item.Level5)
+                            
+
+                        </td>
+                        <td>
+                            @{
+                                double ear5 = lvl5 * item.Level5;
+                            }
+                            @ear5
+
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            Level 7
+
+                        </td>
+                        <td>
+                            @{
+                                int lvl4 = 128;
+                            }
+                            @lvl4
+
+                        </td>
+                        <td>
+                            
+                                @Html.DisplayFor(modelItem => item.Level4)
+                            
+
+                        </td>
+                        <td>
+                            @{
+                                double ear4 = lvl4 * item.Level4;
+                            }
+                            @ear4
+
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            Level 8
+
+                        </td>
+                        <td>
+                            @{
+                                int lvl3 = 256;
+                            }
+                            @lvl3
+
+                        </td>
+                        <td>
+                            
+                                @Html.DisplayFor(modelItem => item.Level3)
+                            
+                        </td>
+                        <td>
+                            @{
+                                double ear3 = lvl3 * item.Level3;
+                            }
+                            @ear3
+
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            Level 9
+
+                        </td>
+                        <td>
+                            @{
+                                int lvl2 = 512;
+                            }
+                            @lvl2
+
+                        </td>
+                        <td>
+                            
+                                @Html.DisplayFor(modelItem => item.Level2)
+                            
+
+                        </td>
+                        <td>
+                            @{
+                                double ear2 = lvl2 * item.Level2;
+                            }
+                            @ear2
+
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            Level 10
+                        </td>
+                        <td>
+                            @{
+                                int lvl1 = 1024;
+                            }
+                            @lvl1
+
+                        </td>
+                        <td>
+                            
+                                @Html.DisplayFor(modelItem => item.Level1)
+                            
+
+                        </td>
+                        <td>
+                            @{
+                                double ear1 = lvl1 * item.Level1;
+                            }
+                            @ear1
+
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            Welfare
+
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Admin)
+
+                        </td>
+
+                    </tr>
+                }
+            }
+
+        </tbody>
+    </table>
+

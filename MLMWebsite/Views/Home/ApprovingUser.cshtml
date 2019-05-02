@@ -1,0 +1,97 @@
+﻿@model IEnumerable<MLMWebsite.Data.ApplicationUser>
+@{
+    ViewData["Title"] = "ApprovingUser";
+}
+<div class="container bg-light p-5">
+    <div>
+       <button class="btn btn-primary">
+           <a style="color:white;" asp-action="Dashboard" asp-controller="Home">Home</a>
+           </button> 
+    </div>
+    <div>
+       
+            @*@await Component.InvokeAsync("SuperAdmin")*@
+        
+    </div>
+    @{
+        if (User.IsInRole("InitAdmin"))
+        {
+
+        }
+        
+        else if (User.IsInRole("Admin"))
+        {
+
+        }
+        else
+        {
+            @*<p>
+                <a asp-action="Create">Create New</a>
+            </p>*@
+        }
+    }
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.UserName)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PhoneNumber)
+                </th>
+
+                @*<th>
+            Id
+        </th>*@
+                <th>
+                    Status
+                </th>
+
+                <th>
+                    Approve
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @item.UserName
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+                <td>
+                    <p class="text-danger">Not Approved</p>
+                </td>
+                <td>
+                    <a href="/Proofs/GetUserProof?email=@item.Email">Approve</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
+
+@section Scripts{ 
+    <script>
+        var seen = {};
+        $('table tr').each(function() {
+          var txt = $(this).text();
+          if (seen[txt])
+            $(this).remove();
+          else
+            seen[txt] = true;
+        });
+    </script>
+}

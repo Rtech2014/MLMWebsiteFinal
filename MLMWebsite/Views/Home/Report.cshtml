@@ -1,0 +1,78 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Identity.EntityFrameworkCore
+@using MLMWebsite.Data
+@model IEnumerable<ApplicationUser>
+@{
+    ViewData["Title"] = "Report";
+}
+<div class="container p-4 bg-light">
+    <div>
+       
+    </div>
+    <h2>Report</h2>
+
+    <form asp-action="Report" asp-controller="Home">
+        <div class="form-group col-md-4">
+            <label for="fromdate">From Date</label>
+            <input type="date" name="fromDate" class="form-control" id="fromdate">
+        </div>
+        <div class="form-group col-md-4">
+            <label for="joindate">To Date</label>
+            <input type="date" name="joinDate" class="form-control" id="joindate">
+        </div>
+        <button class="btn btn-primary">
+            <a style="color:white" asp-action="Dashboard" asp-controller="Home">Home</a>
+        </button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+
+
+
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.JoinDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UserName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AccountNo)
+                </th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (ApplicationUser user in Model)
+            {
+                <tr>
+                    <td>
+                        @{
+                            var dateval = user.JoinDate.ToShortDateString();
+                        }
+                        @dateval
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => user.UserName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => user.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => user.AccountNo)
+                    </td>
+
+
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

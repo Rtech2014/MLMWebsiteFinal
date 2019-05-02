@@ -1,0 +1,34 @@
+﻿@*@using Microsoft.AspNetCore.Identity
+    @using Microsoft.AspNetCore.Identity.EntityFrameworkCore
+    @using MLMWebsite.Data
+    @model IEnumerable<ApplicationUser>*@
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="container">
+    <div class="row">
+        <!-- Text Content -->
+        <div class="col-md-5">
+            <div class="hero-text-content  wow fadeInLeft">
+                <h2 class="font-weight-bolder">
+                    Welcome to Eglobalcare
+                </h2>
+                <p class="text-justify">
+                    Gratitude and Giving makes us happier and happiness makes us more productive and successful. Go share this and motivate someone today because inspiration is one of the best gifts you can give.
+                </p>
+
+                <a asp-action="About" asp-controller="Home"><button type="button" class="btn alisa-color btn-lg">Learn More</button></a>
+                <a asp-action="Contact" asp-controller="Home"><button type="button" class="btn alisa-color btn-lg">Contact</button></a>
+                
+            </div>
+        </div>
+        <!-- Hero Image -->
+        <div class="col-md-7 wow fadeInRight mt-3">
+            <img src="~/Images/Globe-8.png" width="500" class="img-fluid" alt="Service Image">
+        </div>
+    </div>
+</div>
+
+
+
+

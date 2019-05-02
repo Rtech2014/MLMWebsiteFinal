@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewData["Title"] = "Approve";
+}
+
+<h2>Approve</h2>
+
+@foreach (var item in Model)
+{
+    if (User.getUserId() == item.UserId)
+    {
+
+        string imagepngData = Convert.ToBase64String(item.QRCode);
+        string imagepngDataURL = string.Format("data:image/png;base64,{0}", imagepngData);
+
+        <img class="img-circle" src="@imagepngDataURL" width="200" alt="image" />
+    }
+}
+

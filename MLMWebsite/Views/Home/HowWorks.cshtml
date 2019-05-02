@@ -1,0 +1,102 @@
+﻿
+@{
+    ViewData["Title"] = "HowWorks";
+}
+
+
+<div class="container bg-transparent p-5">
+    <h1>How it Works?</h1>
+    <div class="accordion bg-transparent" id="accordionExample">
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Mercury plan
+                    </button>
+                </h5>
+            </div>
+
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6">
+
+                                <img src="../Images/treeviewposter2-01.png" class="img-fluid" />
+                                <img src="../Images/treeview5k-01.png" class="img-fluid" />
+                            </div>
+                            <div class="col-md-6">
+                                @await Component.InvokeAsync("PlanSetting")
+
+                            </div>
+                            <div class="col-md-6">
+
+                                
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*<div class="card">
+            <div class="card-header" id="headingTwo">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Venus Plan
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+
+                            <img src="../Images/Treeviewposter1-01.png" class="img-fluid" />
+                            <img src="../Images/treeviewtree10k-01.png" class="img-fluid" />
+                        </div>
+                        <div class="col-md-6">
+                            @await Component.InvokeAsync("Venus")
+                        </div>
+                        <div class="col-md-6">
+
+
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingThree">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Jupiter Plan
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                           
+                                <img src="../Images/treeviewposter3-01.png" class="img-fluid" />
+                            
+                                <img src="../Images/treeview20k-01.png" class="img-fluid" />
+                            
+                        </div>
+                        <div class="col-md-6">
+                            @await Component.InvokeAsync("Jupiter")
+                        </div>
+                        <div class="col-md-6">
+
+
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+    </div>
+</div>
+

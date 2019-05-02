@@ -1,0 +1,18 @@
+﻿@model IEnumerable<MLMWebsite.Models.AddressProof>
+@{
+    ViewData["Title"] = "Default";
+}
+
+
+
+@foreach (var item in Model)
+{
+    if (User.getUserId() == item.UserId && item.Address == null)
+    {
+
+        string imagepngData = Convert.ToBase64String(item.Address);
+        string imagepngDataURL = string.Format("data:image/png;base64,{0}", imagepngData);
+
+        <img class="img-circle" src="@imagepngDataURL" width="200" alt="image" />
+    }
+}

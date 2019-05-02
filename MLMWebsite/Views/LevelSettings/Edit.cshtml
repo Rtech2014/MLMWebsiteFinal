@@ -1,0 +1,91 @@
+﻿@model MLMWebsite.Models.LevelSetting
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+@*<h2>Edit</h2>*@
+
+<h4>LevelSetting</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4 offset-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="LevelId" />
+            <div class="form-group">
+                <label asp-for="LevelName" class="control-label"></label>
+                <input asp-for="LevelName" class="form-control" />
+                <span asp-validation-for="LevelName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PackagePrice" class="control-label"></label>
+                <input asp-for="PackagePrice" class="form-control" />
+                <span asp-validation-for="PackagePrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Admin" class="control-label"></label>
+                <input asp-for="Admin" class="form-control" />
+                <span asp-validation-for="Admin" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Level1" class="control-label"></label>
+                <input asp-for="Level1" class="form-control" />
+                <span asp-validation-for="Level1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Level2" class="control-label"></label>
+                <input asp-for="Level2" class="form-control" />
+                <span asp-validation-for="Level2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Level3" class="control-label"></label>
+                <input asp-for="Level3" class="form-control" />
+                <span asp-validation-for="Level3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Level4" class="control-label"></label>
+                <input asp-for="Level4" class="form-control" />
+                <span asp-validation-for="Level4" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Level5" class="control-label"></label>
+                <input asp-for="Level5" class="form-control" />
+                <span asp-validation-for="Level5" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Level6" class="control-label"></label>
+                <input asp-for="Level6" class="form-control" />
+                <span asp-validation-for="Level6" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Level7" class="control-label"></label>
+                <input asp-for="Level7" class="form-control" />
+                <span asp-validation-for="Level7" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Level8" class="control-label"></label>
+                <input asp-for="Level8" class="form-control" />
+                <span asp-validation-for="Level8" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Level9" class="control-label"></label>
+                <input asp-for="Level9" class="form-control" />
+                <span asp-validation-for="Level9" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Level10" class="control-label"></label>
+                <input asp-for="Level10" class="form-control" />
+                <span asp-validation-for="Level10" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

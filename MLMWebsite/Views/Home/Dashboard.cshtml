@@ -1,0 +1,304 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Identity.EntityFrameworkCore
+@using MLMWebsite.Data
+@model IEnumerable<ApplicationUser>
+@{
+    ViewData["Title"] = "Dashboard";
+}
+<style>
+    .sidebar1 {
+        background: #efefef;
+        /* For browsers that do not support gradients */
+        /*background: -webkit-linear-gradient(#F17153, #F58D63, #f1ab53);*/
+        /* For Safari 5.1 to 6.0 */
+        /*background: -o-linear-gradient(#F17153, #F58D63, #f1ab53);*/
+        /* For Opera 11.1 to 12.0 */
+        /*background: -moz-linear-gradient(#F17153, #F58D63, #f1ab53);*/
+        /* For Firefox 3.6 to 15 */
+        /*background: linear-gradient(#F17153, #F58D63, #f1ab53);*/
+        /* Standard syntax */
+        padding: 0px;
+        min-height: 100%;
+    }
+
+    .logo {
+        max-height: 130px;
+    }
+
+        .logo > img {
+            margin-top: 30px;
+            padding: 3px;
+            border: 3px solid white;
+            border-radius: 100%;
+        }
+
+    .list {
+        color: white;
+        list-style: none;
+        padding-left: 0px;
+        font-weight: bold;
+    }
+
+        .list::first-line {
+            color: #7f1f75;
+        }
+
+        .list > li, h5 {
+            padding: 5px 0px 5px 40px;
+            color: white;
+        }
+
+            .list > li:hover {
+                background-color: rgba(255, 255, 255, 0.2);
+                border-left: 5px solid white;
+                color: white;
+                font-weight: bold;
+                padding-left: 35px;
+            }
+
+    .main-content {
+        text-align: center;
+    }
+</style>
+<div class="container">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2 col-sm-4 sidebar1">
+
+                <br>
+                <div class="left-navigation">
+                    <ul class="list" style="color:white;">
+                       <h5><strong>Dashboard</strong></h5>
+                        <li><a asp-action="Index" asp-controller="Home">Home</a></li>
+
+                        <li><a asp-area="Identity" asp-page="/Account/Manage/Index">General Setting </a></li>
+
+                        @if (User.IsInRole("SuperAdmin"))
+                        {
+                            <li><a asp-action="ApprovingUser" asp-controller="Home">Approve User</a></li>
+                            <li><a asp-action="AddUser" asp-controller="Admin">Add Admin</a></li>
+                            <li><a asp-action="Index" asp-controller="LevelSettings">Level Setting</a></li>
+                            <li><a asp-action="Report" asp-controller="Home"> Reporting</a></li>
+                            <li><a asp-action="MemberList" asp-controller="Admin">Memberlist</a></li>
+                        }
+
+                        @if (User.IsInRole("InitAdmin"))
+                        {
+                            <li ><a asp-action="AddUser" asp-controller="Admin">Add User</a></li>
+                            <li><a asp-action="ApprovingUser" asp-controller="Home">Approve User</a></li>
+                            <li><a asp-action="MemberList" asp-controller="Admin">Memberlist</a></li>
+                            <li><a asp-action="TreeView" asp-controller="Admin">TreeView</a></li>
+                        }
+
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li><a asp-action="AddUser" asp-controller="Admin">Add Admin</a></li>
+                            <li><a asp-action="ApprovingUser" asp-controller="Home">Approve User</a></li>
+                        }
+
+                        @if (!User.IsInRole("SuperAdmin") && !User.IsInRole("InitAdmin") && !User.IsInRole("Admin"))
+                        {
+                            <li >
+                                <a asp-action="Upline" asp-controller="Admin">Upline Account Details</a>
+
+                            </li>
+                        }
+                    </ul>
+                    @*<br>
+                    <ul class="list">
+                        <h5><strong>HOBBIES</strong></h5>
+                        <li>Hiking</li>
+                        <li>Rafting</li>
+                        <li>Badminton</li>
+                        <li>Tennis</li>
+                        <li>Sketching</li>
+                        <li>Horse Riding</li>
+                    </ul>
+                </div>*@
+            </div>
+            @*@*<div class="col-md-10 col-sm-8 main-content">
+                Main content code to be written here 
+                <h1>Welcome to your Dashboard</h1>
+                </div>*@
+        </div>
+        @*<div class="container bg-transparent">
+            <section class="services pt-100 pb-50" id="services">
+                <div class="container bg-transparent">
+                    <div class="row">
+                        <div class="col-xl-6 mx-auto text-center">
+                            <div class="section-title col-md-12">
+                                <h4>Dashboard</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6">
+                            <!-- Single Service -->
+                            <a asp-area="Identity" asp-page="/Account/Manage/Index">
+                                <div class="single-service">
+                                    <i class="fa fa-cog fa-3x" style="font-size: 3em;"></i>
+                                    <h4>General Settings </h4>
+                                </div>
+                            </a>
+                        </div>
+                        @if (User.IsInRole("SuperAdmin"))
+                        {
+                            <div class="col-lg-3 col-md-6">
+                                <!-- Single Service -->
+                                <a asp-action="ApprovingUser" asp-controller="Home">
+                                    <div class="single-service">
+                                        <i class="fa fa-user" style="font-size: 3em;"></i>
+                                        <h4>UnApproved Members</h4>
+                                    </div>
+                                </a>
+                            </div>
+                        }
+
+                        @if (User.IsInRole("SuperAdmin"))
+                        {
+                            <div class="col-lg-3 col-md-6">
+                                <!-- Single Service -->
+                                <a asp-action="AddUser" asp-controller="Admin">
+                                    <div class="single-service">
+                                        <i class="fa fa-user" style="font-size: 3em;"></i>
+                                        <h4>Add Admin</h4>
+                                    </div>
+                                </a>
+                            </div>
+                        }
+
+
+                        @if (!User.IsInRole("SuperAdmin") && !User.IsInRole("InitAdmin"))
+                        {
+                            <div class="col-lg-3 col-md-6">
+                                 Single Service
+                                <a asp-action="Create" asp-controller="Proofs">
+                                    <div class="single-service">
+                                        <i class="fa fa-user" style="font-size: 3em;"></i>
+                                        <h4>Add Proof </h4>
+                                    </div>
+                                </a>
+                            </div>
+                        }*@
+
+                        @*@if (!User.IsInRole("SuperAdmin") && (User.IsInRole("InitAdmin")))
+                        {
+                            <div class="col-lg-3 col-md-6">
+                                 Single Service 
+                                <a asp-action="ApprovingUser" asp-controller="Home">
+                                    <div class="single-service">
+                                        <i class="fa fa-user" style="font-size: 3em;"></i>
+                                        <h4>Approve User </h4>
+                                    </div>
+                                </a>
+                            </div>
+                        }*@
+
+
+
+                        @*@if (User.IsInRole("SuperAdmin"))
+                        {
+                            <div class="col-lg-3 col-md-6">
+                                 Single Service 
+                                <a asp-action="MemberList" asp-controller="Admin">
+                                    <div class="single-service">
+                                        <i class="fa fa-user" style="font-size: 3em;"></i>
+                                        <h4>Member List </h4>
+                                    </div>
+                                </a>
+                            </div>
+                        }*@
+
+
+                        @*@if (User.IsInRole("SuperAdmin") && (User.IsInRole("InitAdmin")))
+                        {
+                            <div class="col-lg-3 col-md-6">
+                                 Single Service 
+                                <a asp-action="ReferalUsers" asp-controller="Home">
+                                    <div class="single-service">
+                                        <i class="fa fa-users" style="font-size: 3em;"></i>
+                                        <h4>@User.Identity.Name's Referal Users</h4>
+                                    </div>
+                                </a>
+                            </div>
+                        }*@
+
+                        @*@if (User.IsInRole("SuperAdmin"))
+                        {
+                            <div class="col-lg-3 col-md-6">
+                                 Single Service 
+                                <a asp-action="Report" asp-controller="Home">
+                                    <div class="single-service">
+                                        <i class="fa fa-line-chart" style="font-size: 3em;"></i>
+                                        <h4>Report</h4>
+                                    </div>
+                                </a>
+                            </div>
+                        }*@
+
+
+
+
+
+                        @*@if (!User.IsInRole("SuperAdmin") && !User.IsInRole("InitAdmin"))
+                        {
+                            <div class="col-lg-3 col-md-6">
+                                 Single Service 
+                                <a asp-action="Upline" asp-controller="Admin">
+                                    <div class="single-service">
+                                        <i class="fa fa-fa fa-lightbulb-o" style="font-size: 3em;"></i>
+                                        <h4>Upline Account Details</h4>
+                                    </div>
+                                </a>
+                            </div>
+                        }*@
+
+                        @*@if (User.IsInRole("InitAdmin"))
+                        {
+
+                            <div class="col-lg-3 col-md-6">
+                                 Single Service 
+                                <a asp-action="AddUser" asp-controller="Admin">
+                                    <div class="single-service">
+                                        <i class="fa fa-fa fa-lightbulb-o" style="font-size: 3em;"></i>
+                                        <h4>Add User</h4>
+                                    </div>
+                                </a>
+                            </div>
+                        }*@
+
+                        @*@if (User.IsInRole("SuperAdmin"))
+                        {
+                            <div class="col-lg-3 col-md-6">
+                                 Single Service 
+                                <a asp-action="Index" asp-controller="LevelSettings">
+                                    <div class="single-service">
+                                        <i class="fa fa-fa fa-lightbulb-o" style="font-size: 3em;"></i>
+                                        <h4>Level Settings</h4>
+                                    </div>
+                                </a>
+                            </div>
+                        }*@
+
+                        @*@if (User.)
+                        {
+                            <div class="col-lg-3 col-md-6">
+                                 Single Service
+                                <a asp-action="AddUser" asp-controller="Admin">
+                                    <div class="single-service">
+                                        <i class="fa fa-fa fa-lightbulb-o" style="font-size: 3em;"></i>
+                                        <h4>Add User</h4>
+                                    </div>
+                                </a>
+                            </div>
+                        }*@
+
+
+
+                    </div>
+                </div>
+            </section>
+        </div>
+
+
+    </div>

@@ -1,0 +1,76 @@
+﻿
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Identity.EntityFrameworkCore
+@using MLMWebsite.Data
+@model IEnumerable<ApplicationUser>
+
+@{
+    ViewData["Title"] = "UserManagement";
+}
+
+<div class="container bg-light p-5">
+    @{
+        if (!User.IsInRole("InitAdmin"))
+        {
+
+        }
+        else if (User.IsInRole("SuperAdmin"))
+        {
+
+        }
+        else if (User.IsInRole("Admin"))
+        {
+
+        }
+        else
+        {
+            <p>
+                <a asp-action="Create">Create New</a>
+            </p>
+        }
+    }
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PhoneNumber)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+                <td>
+                    <form asp-action="DeleteUser" asp-route-id="@item.Id" method="post">
+                        <a class="btn btn-sm btn-primary" asp-action="EditUser" asp-route-id="@item.Id">Edit</a>
+                        <button type="submit" onclick="return confirm('Do you really want to delete this user?');" class="btn btn-sm btn-danger">
+                            Delete
+                        </button>
+                    </form>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
+

@@ -1,0 +1,76 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Identity.EntityFrameworkCore
+@using MLMWebsite.Data
+@using System
+@model List<ApplicationUser>
+
+@{
+    ViewData["Title"] = "UserManagement";
+}
+<style>
+    .tf-tree {
+        font-size: 30px !important;
+    }
+</style>
+@ViewData["count"]
+
+@{
+    string mainuser = "";
+    string leftuser = "";
+    string rightuser = "";
+    int i = 0;
+    string mainlink = "";
+    string leftlink = "";
+    string rightlink = "";
+}
+
+@foreach (var item in Model)
+{
+    if (i == 0)
+    {
+        mainuser = item.UserName;
+        mainlink = item.Id;
+    }
+    if (i == 1)
+    {
+        leftuser = item.UserName;
+        leftlink = item.Id;
+    }
+    if (i == 2)
+    {
+        rightuser = item.UserName;
+        rightlink = item.Id;
+    }
+    i++;
+}
+
+<div class="container">
+    <div class="card bg-white col-md-4 offset-4">
+        <h1 class="text-center">Tree View</h1>
+    </div>
+    <div class="tf-tree example offset-4">
+        <ul>
+            <li>
+                <ul>
+                    <li>
+                        <span class="tf-nc">
+                            <a asp-action="TreeView" asp-controller="Admin" asp-route-id="@mainlink"> @mainuser</a>
+                        </span>
+                        <ul>
+                            <li>
+                                <span class="tf-nc">
+                                    <a asp-action="TreeView" asp-controller="Admin" asp-route-id="@rightlink"> @rightuser</a>
+                                </span>
+                            </li>
+                            <li>
+                                <span class="tf-nc">
+                                    <a asp-action="TreeView" asp-controller="Admin" asp-route-id="@leftlink"> @leftuser</a>
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>

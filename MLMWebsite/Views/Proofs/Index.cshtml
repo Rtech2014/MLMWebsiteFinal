@@ -1,0 +1,72 @@
+﻿@model IEnumerable<MLMWebsite.Models.Proof>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="container bg-light p-5">
+    @{
+        if (!User.IsInRole("InitAdmin"))
+        {
+
+        }
+        else if (User.IsInRole("SuperAdmin"))
+        {
+
+        }
+        else if (User.IsInRole("Admin"))
+        {
+
+        }
+        else
+        {
+            <p>
+                <a asp-action="Create">Create New</a>
+            </p>
+        }
+    }
+    <button  class="btn btn-primary">
+        <a style="color:white;" asp-action="Upline" asp-controller="Admin">
+            Back to Upline
+        </a>
+    </button>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                
+
+                <th>
+                    @Html.DisplayNameFor(model => model.File)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @{ 
+                            string imagepngData = Convert.ToBase64String(item.File);
+                            string imagepngDataURL = string.Format("data:image/png;base64,{0}", imagepngData);
+                        }
+                        <img src="@imagepngDataURL" width="200" alt="image" />
+                    </td>
+                    <td>
+                        <button class="btn btn-primary">
+                            <a style="color:white" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        </button>
+                        
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
